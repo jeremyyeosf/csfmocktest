@@ -1,0 +1,73 @@
+<h1>Bitcoin Order Form</h1>
+
+<form [formGroup]="orderForm" (ngSubmit)="onSubmit(orderForm.value)">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" id=name [formControl]="orderForm.controls['name']">
+    </div>
+    <div>
+        <label for="contactNo">Contact No</label>
+        <input type="text" id=contactNo [formControl]="orderForm.controls['contactNo']">
+    </div>
+    <div>
+        <label for="gender">Gender: </label>
+        <label>
+            <input type="radio" value="male" formControlName="gender">
+            <span>Male</span>
+        </label>
+        <label>
+        <input type="radio" value="female" formControlName="gender">
+            <span>Female</span>
+        </label>
+        <label>
+        <input type="radio" value="other" formControlName="gender">
+            <span>Other</span>
+        </label>
+    </div>
+    <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" [formControl]="orderForm.controls['dob']">
+    </div>
+    
+    <!-- Order date(Datepicker) -->
+    <!-- Order type (select: buy/sell) -->
+    <div>
+        <label for="orderType">Order Type</label>
+        <select name="orderType" id="orderType" [formControl]="orderForm.controls['orderType']">
+            <option value="buy">Buy</option>
+            <option value="sell">Sell</option>
+        </select>
+    </div>
+    <div>
+        <label for="orderUnit">Order Unit</label>
+        <input type="text" id=orderUnit [formControl]="orderForm.controls['orderUnit']">
+    </div>
+    <!-- Cryptocurrency Pair (label)  i.   Display SGD/BTC  -->
+    <!-- Cryptocurrency Price (label) get from backend API -->
+    <!-- Paylah/Paynow QR Code URL (text) enable for Sell order -->
+    <!-- Bitcoin address (text) for user input, enable for Buy order -->
+    <div>
+        <label for="qrCodeLink">QR Code URL</label>
+        <input type="text" id=qrCodeLink [formControl]="orderForm.controls['qrCodeLink']"
+         placeholder="please enter your Paylah/Paynow QR Code URL">
+    </div>
+    <div>
+        <label for="bitcoinAddress">Bitcoin Address</label>
+        <input type="text" id=bitcoinAddress [formControl]="orderForm.controls['bitcoinAddress']">
+    </div>
+    <!-- Total Amount in SGD (label)  Unit x Cryptocurrency Price -->
+    
+    
+
+
+
+
+
+
+
+
+
+
+    <button type="submit">Submit</button>
+    <!-- reset button -->
+</form>
